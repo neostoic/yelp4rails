@@ -29,13 +29,13 @@ Usage
 
 supported search_by queries
 ---
-# key, value, required?
-# term, string, optional
-# limit, number, optional
-# offset, number, optional
-# sort, string, optional
-## Sort mode: 0=Best matched (default), 1=Distance, 2=Highest Rated.
-# category_filter, string, optional
-# radius_filter, number, optional
-# deals_filter, bool, optional  
+ * key, value, required?
+ * term, string, optional
+ * limit, number, optional
+ * offset, number, optional
+ * sort, string, optional
+   * Sort mode: 0=Best matched (default), 1=Distance, 2=Highest Rated.
+ * category_filter, string, optional
+ * radius_filter, number, optional
+ * deals_filter, bool, optional  
 
