@@ -1,7 +1,15 @@
+# Yelp4Rails
+# - for working with the yelp api like its an active record model
+#
+# originated by Mike Heijmans
+#
+#   Apache License
+#   Version 2.0, January 2004
+#   http://www.apache.org/licenses/
+#   Copyright 2013 Michael Heijmans
+#
 # Class for working with Yelp API
 # Should resemble a database model as much as possible
-#
-# Michael Heijmans 09/03/2013
 
 require 'oauth'
 require 'json'
@@ -21,6 +29,18 @@ class YelpApi
     setup_access_token
   end
   
+  def log(message, level=:info)
+    if defined? Rails.logger
+      if level == :info
+        Rails.logger.info message
+      elsif level == :error
+        Rails.logger.error message
+      end
+    else
+      puts "#{level}: #{message}"
+    end
+  end
+  
   def setup_consumer
     @consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, :site=>@base_url)
   end
@@ -32,7 +52,7 @@ class YelpApi
   end
   
   def fetch_uri(uri)
-    Rails.logger.info "Fetching from Yelp: #{uri}"
+    log "Fetching from Yelp: #{uri}"
     result = @access_token.get(uri)
     return JSON.parse(result.body)
   end
