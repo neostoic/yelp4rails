@@ -1,0 +1,5 @@
+api_keys:
+    consumer_key: 123abc
+    consumer_secret: 123abc
+    token: 123abc
+    token_secret: 123abc
