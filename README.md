@@ -4,6 +4,11 @@ yelp4rails
 
 A gem that provides and ActiveRecord like object for interacting with the yelp V2 api
 
+Why Yelp4Rails?
+---
+Because working with an api should be no different that working with a database.
+
+
 Usage
 ---
 	require 'yelp4rails'
