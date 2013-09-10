@@ -1,5 +1,6 @@
 yelp4rails
 ==========
+[![Gem Version](https://badge.fury.io/rb/yelp4rails.png)](http://badge.fury.io/rb/yelp4rails)
 
 A gem that provides and ActiveRecord like object for interacting with the yelp V2 api
 
