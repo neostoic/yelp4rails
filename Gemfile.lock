@@ -2,9 +2,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     oauth (0.4.7)
+    rake (10.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   oauth (= 0.4.7)
+  rake

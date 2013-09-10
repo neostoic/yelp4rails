@@ -25,6 +25,9 @@ require "#{$LIB_BASE_DIR}/lib/yelp4rails"
 class YelpApiTest < Test::Unit::TestCase
   
   def setup
+    unless File.exist?("#{$LIB_BASE_DIR}/test/fixture.yml")
+      return
+    end
     yaml = YAML.load_file("#{$LIB_BASE_DIR}/test/fixture.yml")['api_keys']
     keys = {:consumer_key=>yaml['consumer_key'], 
             :consumer_secret=>yaml['consumer_secret'], 
@@ -36,6 +39,9 @@ class YelpApiTest < Test::Unit::TestCase
   
   
   def test_search_response
+    unless File.exist?("#{$LIB_BASE_DIR}/test/fixture.yml")
+      return
+    end
     assert_equal @search['businesses'].length, 20
     assert_equal @search['region']['center']['latitude'].to_i, 37
     assert_equal @search['region']['center']['longitude'].to_i, -121
