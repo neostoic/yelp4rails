@@ -1,0 +1,9 @@
+GEM
+  specs:
+    oauth (0.4.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  oauth (= 0.4.7)
