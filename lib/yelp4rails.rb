@@ -50,6 +50,19 @@ class YelpApi
     @access_token.token = @token
     @access_token.secret = @token_secret
   end
+
+  def find_by(params)
+    if params.include? :business_id
+      search_by_business_id(params[:business_id])
+    else
+      queryparams = []
+      params.each do |key, value|
+        queryparams << "#{key}=#{value.gsub(" ", "+")}"
+      end
+      uri = "/v2/search?#{queryparams.join("&")}"
+      fetch_uri(uri)
+    end
+  end
   
   def fetch_uri(uri)
     log "Fetching from Yelp: #{uri}"
