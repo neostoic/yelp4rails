@@ -40,7 +40,7 @@ Usage
 	... you get the idea ;)
 	
 
-supported search_by queries
+supported query params
 ---
  * key, value, required?
  * term, string, optional
