@@ -1,37 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Yelp4rails by parabuzzle</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Yelp4rails : A gem that provides and activerecord like object for interacting with the yelp V2 api" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Yelp4rails</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Yelp4rails</h1>
-        <p>A gem that provides and activerecord like object for interacting with the yelp V2 api</p>
 
-        <p class="view"><a href="https://github.com/parabuzzle/yelp4rails">View the Project on GitHub <small>parabuzzle/yelp4rails</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/parabuzzle/yelp4rails">View on GitHub</a>
 
+          <h1 id="project_title">Yelp4rails</h1>
+          <h2 id="project_tagline">A gem that provides and activerecord like object for interacting with the yelp V2 api</h2>
 
-        <ul>
-          <li><a href="https://github.com/parabuzzle/yelp4rails/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/parabuzzle/yelp4rails/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/parabuzzle/yelp4rails">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/parabuzzle/yelp4rails/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/parabuzzle/yelp4rails/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
 <a name="yelp4rails" class="anchor" href="#yelp4rails"><span class="octicon octicon-link"></span></a>yelp4rails</h1>
 
-<p><a href="http://badge.fury.io/rb/yelp4rails"><img src="https://badge.fury.io/rb/yelp4rails.png" alt="Gem Version"></a></p>
+<p><a href="http://badge.fury.io/rb/yelp4rails"><img src="https://badge.fury.io/rb/yelp4rails.png" alt="Gem Version"></a>
+<a href="https://travis-ci.org/parabuzzle/yelp4rails"><img src="https://travis-ci.org/parabuzzle/yelp4rails.png?branch=master" alt="Build Status"></a></p>
 
 <p>A gem that provides and ActiveRecord like object for interacting with the yelp V2 api</p>
 
@@ -41,35 +45,41 @@
 <p>Because working with an api should be no different that working with a database.</p>
 
 <h2>
+<a name="notice" class="anchor" href="#notice"><span class="octicon octicon-link"></span></a>NOTICE!</h2>
+
+<p>Version 2 now supports the new Rails 4 style of query using the <code>find_by(params_hash)</code> method. This version is
+backward compatible with Version 1.x.x but future versions will drop the <code>search_by_term_and_location(:term, :location)</code>
+meta programming style methods handling. </p>
+
+<p><strong>Consider Yourself Warned!</strong></p>
+
+<h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <pre><code>require 'yelp4rails'
 
-keys = {:consumer_key=&gt;"key", 
-            :consumer_secret=&gt;"secret", 
-            :token=&gt;"token", 
-            :token_secret=&gt;"tsecret"}
+keys = {consumer_key: 'key', 
+          consumer_secret: 'secret', 
+          token: 'token', 
+          token_secret: 'tsecret'}
 yelp = YelpApi.new(keys)
 
 ## Search like its an active record model ##
 
-#search by term
-yelp.search_by_term("restaurant")
-
 #search with term and location
-yelp.search_by_term_and_location("bar", "San Francisco, CA")
+yelp.find_by(term: 'bar', location: 'San Francisco, CA')
 
 #search with term, location, and sort
-yelp.search_by_term_and_location_and_sort("restaurant", "San Francisco, CA", "2")
+yelp.find_by(term: 'restaurant', location: 'San Francisco, CA', sort: '2')
 
 #search by business id
-yelp.search_by_business_id(123)
+yelp.find_by(business_id: 123)
 
 ... you get the idea ;)
 </code></pre>
 
 <h2>
-<a name="supported-search_by-queries" class="anchor" href="#supported-search_by-queries"><span class="octicon octicon-link"></span></a>supported search_by queries</h2>
+<a name="supported-query-params" class="anchor" href="#supported-query-params"><span class="octicon octicon-link"></span></a>supported query params</h2>
 
 <ul>
 <li>key, value, required?</li>
@@ -88,12 +98,17 @@ yelp.search_by_business_id(123)
 </li>
 </ul>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/parabuzzle">parabuzzle</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Yelp4rails maintained by <a href="https://github.com/parabuzzle">parabuzzle</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
+
     
+
   </body>
 </html>
